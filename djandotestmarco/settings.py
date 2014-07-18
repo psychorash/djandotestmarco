@@ -68,6 +68,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIR = {
-    os.path.join(BASE_DIR,'djandotestmarco/templates'),
-}
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'djandotestmarco/templates'),
+)
