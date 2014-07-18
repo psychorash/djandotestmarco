@@ -24,6 +24,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djandotestmarco.apps.main',
+    'djandotestmarco.apps.social',
 )
 
 MIDDLEWARE_CLASSES = (
