@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}Welcome {% endblock %}
+{% block user %} {{ user}} {% endblock %}
 {% block body %}
-        <h1>Marco</h1>
+        <h1>{{ settings.my_name}}</h1>
+        <h2 class="welcome-h2 animated fadeInDown">El WEB framework para perfeccionistas con fechas límite.</h2>
+        <img class="" src="{{ MEDIA_URL }}{{ settings.my_photo }}" title="{{ settings.my_name }}"></a>
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
 
-        <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Action <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
+<!-- Modal -->
+<div class="modal animated fadeInUp" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+    {% for net in networks %}
+        <p><a href="{{ net.url }}" target="_blank"><img src="{{ MEDIA_URL }}{{ net.icon }}" title="{{ net.name }}"></a> </p>
+    {% endfor %}
 {% endblock %}

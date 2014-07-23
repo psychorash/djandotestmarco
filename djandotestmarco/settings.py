@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djandotestmarco.apps.main',
     'djandotestmarco.apps.social',
+    'djandotestmarco.apps.registration',
 )
 
 MIDDLEWARE_CLASSES = (

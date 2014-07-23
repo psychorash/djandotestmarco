@@ -4,7 +4,7 @@ from django.db import models
 class SocialNetWork(models.Model):
 
     def image_path(self, filename):
-       ruta ="SocialNetwork/%s/%s" % (self.settings_name, str(filename))
+       ruta ="SocialNetwork/%s/%s" % (self.name, str(filename))
        return ruta
 
     name = models.CharField(max_length=300)

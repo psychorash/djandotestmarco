@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Login {% endblock %}
+{% load i18n staticfiles %}
+{% block body %}
+<h4>Account created successfully <span class="glyphicon glyphicon-ok"></span></h4>
+     <a href="{% url 'login' %}">{% trans "Sign in here" %}</a>
+{% endblock %}
