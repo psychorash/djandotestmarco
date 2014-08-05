@@ -14,6 +14,9 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -81,3 +84,10 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'djandotestmarco/templates'),
 )
+
+
+
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'marco.manrique@miublue.com'
+EMAIL_HOST_PASSWORD = 'Miublue2014.'

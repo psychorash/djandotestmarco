@@ -10,7 +10,9 @@ from django.views.generic.base import View
 from django.views.generic.edit import FormView
 from djandotestmarco.apps.registration import config
 from djandotestmarco.apps.registration.forms import RegistrationForm, LoginForm
-
+from django.core.mail import send_mail
+import smtplib
+from email.mime.text import MIMEText
 
 class LoginView(FormView):
     template_name = 'registration/login.html'
@@ -54,12 +56,29 @@ class RegisterView(FormView):
             return super(RegisterView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
+        # Define to/from
+        sender = 'marco.manrique@miublue.com'
+        recipient = 'psycho.rash@gmail.com'
 
-        user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password1'],
-            email=form.cleaned_data['email']
-        )
+        # Create message
+        msg = MIMEText("Message text")
+        msg['Subject'] = "Sent from python"
+        msg['From'] = sender
+        msg['To'] = recipient
+
+        # Create server object with SSL option
+        server = smtplib.SMTP_SSL('smtp.zoho.com', 465)
+
+        # Perform operations via server
+        server.login('marco.manrique@miublue.com', 'Miublue2014.')
+        server.sendmail(sender, [recipient], msg.as_string())
+        server.quit()
+        #send_mail('test email', 'hello world', 'marco.manrique@miublue.com', ['psycho.rash@gmail.com'], fail_silently=True)
+        # user = User.objects.create_user(
+        #    username=form.cleaned_data['username'],
+        #    password=form.cleaned_data['password1'],
+        #    email=form.cleaned_data['email']
+        #)
 
         return super(RegisterView, self).form_valid(form)
 
