@@ -70,6 +70,7 @@ class RegisterView(FormView):
         server = smtplib.SMTP_SSL('smtp.zoho.com', 465)
 
         # Perform operations via server
+
         server.login('marco.manrique@miublue.com', 'Miublue2014.')
         server.sendmail(sender, [recipient], msg.as_string())
         server.quit()
