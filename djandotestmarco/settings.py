@@ -29,6 +29,7 @@ INSTALLED_APPS = (
     'djandotestmarco.apps.main',
     'djandotestmarco.apps.social',
     'djandotestmarco.apps.registration',
+    'djandotestmarco.apps.search',
 )
 
 MIDDLEWARE_CLASSES = (

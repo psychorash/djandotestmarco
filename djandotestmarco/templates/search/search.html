@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Search {% endblock %}
+{% block user %} {{ user}} {% endblock %}
+{% block body %}
+<ul>
+    {% for settings in object_list %}
+    <li><b>{{ settings.settings_name }}</b></li>
+
+    {% endfor %}
+  </ul>
+{% endblock %}
