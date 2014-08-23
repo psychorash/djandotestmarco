@@ -11,7 +11,7 @@ from django.utils import simplejson as json
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView
 from django.core import serializers
-
+import json
 class SearchView(ListView):
     model = Setting
     select_related = ['settings_name']
@@ -54,5 +54,8 @@ class UserProfileAJAXView(TemplateView):
     def get(self, request, *args, **kwargs):
         id = request.GET['id']
         settings = self.model.objects.filter(settings_name__icontains=id)
-        data = serializers.serialize('json', settings, fields=('settings_name', 'my_name'))
+
+        print(settings)
+        data = serializers.serialize('json', settings, fields=('settings_name'))
+        print(data)
         return HttpResponse(data, mimetype='application/json')
